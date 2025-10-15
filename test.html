@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연구실 소개</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-image: url('ICNPR2024.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        nav ul li {
+            margin: 0 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: #ddd;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .research-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .research-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .research-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Team Section */
+        .team {
+            background: #f8f9fa;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Plant Metabolomics Lab</h1>
+            <p>Dancing with metabolome</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#research">연구분야</a></li>
+                <li><a href="#team">구성원</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">연구실 소개</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>우리 연구실은 인공지능과 머신러닝 분야의 최신 기술을 연구하고 있습니다. 특히 딥러닝, 자연어처리, 컴퓨터 비전 등의 분야에서 혁신적인 연구를 진행하고 있습니다.</p>
+                    <br>
+                    <p>학생들과 함께 새로운 아이디어를 탐구하고, 실용적인 솔루션을 개발하여 사회에 기여하는 것을 목표로 하고 있습니다.</p>
+                </div>
+                <div class="about-image">
+                    연구실 사진
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title">연구분야</h2>
+            <div class="research-grid">
+                <div class="research-item">
+                    <h3>딥러닝</h3>
+                    <p>신경망 구조 최적화 및 새로운 아키텍처 개발에 대한 연구를 진행합니다.</p>
+                </div>
+                <div class="research-item">
+                    <h3>자연어처리</h3>
+                    <p>텍스트 분석, 감정 분석, 기계번역 등의 자연어처리 기술을 연구합니다.</p>
+                </div>
+                <div class="research-item">
+                    <h3>컴퓨터 비전</h3>
+                    <p>이미지 인식, 객체 탐지, 얼굴 인식 등의 컴퓨터 비전 기술을 개발합니다.</p>
+                </div>
+                <div class="research-item">
+                    <h3>강화학습</h3>
+                    <p>게임 AI, 로봇 제어, 자율주행 등의 강화학습 응용을 연구합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">연구실 구성원</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">교수</div>
+                    <div class="member-name">김교수</div>
+                    <div class="member-role">지도교수</div>
+                    <p>인공지능 분야 20년 경력</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">박사</div>
+                    <div class="member-name">이박사</div>
+                    <div class="member-role">박사과정</div>
+                    <p>딥러닝 전문</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">석사</div>
+                    <div class="member-name">최석사</div>
+                    <div class="member-role">석사과정</div>
+                    <p>자연어처리 연구</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">학부</div>
+                    <div class="member-name">정학부</div>
+                    <div class="member-role">학부연구생</div>
+                    <p>컴퓨터 비전 연구</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">연락처</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>주소</h3>
+                    <p>서울시 강남구 테헤란로 123<br>공과대학 5층 501호</p>
+                </div>
+                <div class="contact-item">
+                    <h3>전화</h3>
+                    <p>02-1234-5678</p>
+                </div>
+                <div class="contact-item">
+                    <h3>이메일</h3>
+                    <p>ailab@university.ac.kr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI 연구실. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
